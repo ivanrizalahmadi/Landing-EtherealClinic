@@ -51,7 +51,7 @@
             <a href="index.html#kontak" class="text-gray-500 hover:text-[#8A3033] transition-colors">Kontak</a>
         </div>
     
-        <div class="flex flex-1 justify-end items-center">
+        <div class="flex flex-1 justify-end items-center gap-2 md:gap-0">
                     <button onclick="Swal.fire({
                         title: 'Ethereal AI System',
                         text: 'Fitur Analisis AI & Sistem Pakar Certainty Factor sedang dalam proses sinkronisasi database server. Nantikan rilis penuhnya saat demonstrasi sistem utama!',
@@ -59,22 +59,50 @@
                         confirmButtonColor: '#8A3033',
                         confirmButtonText: 'Dimengerti',
                         background: '#FFF8F9'
-                     })" class="px-6 py-2.5 bg-gradient-to-r from-[#7B5556] to-[#EFBDBD] text-white font-bold text-sm rounded-full shadow-md shadow-[#7B5556]/20 hover:scale-105 transition-all duration-300">
+                     })" class="hidden sm:block px-6 py-2.5 bg-gradient-to-r from-[#7B5556] to-[#EFBDBD] text-white font-bold text-sm rounded-full shadow-md shadow-[#7B5556]/20 hover:scale-105 transition-all duration-300">
                         Coba Gratis
+                    </button>
+                    <!-- Hamburger Menu -->
+                    <button onclick="toggleMenu()" class="block md:hidden text-[#68575E] hover:text-[#8A3033] focus:outline-none p-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
                     </button>
         </div>
     </nav>
 
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="hidden md:hidden fixed top-[68px] left-0 w-full bg-white shadow-xl z-40 py-6 text-center space-y-5 text-sm font-medium border-t border-[#E1E3DE]">
+        <a href="index.html#beranda" class="block text-[#68575E] hover:text-[#8A3033]" onclick="toggleMenu()">Beranda</a>
+        <a href="index.html#layanan" class="block text-[#68575E] hover:text-[#8A3033]" onclick="toggleMenu()">Layanan</a>
+        <a href="tentang-kami.html" class="block text-[#68575E] hover:text-[#8A3033]" onclick="toggleMenu()">Tentang Kami</a>
+        <a href="kebijakan-privasi.html" class="block text-[#68575E] hover:text-[#8A3033]" onclick="toggleMenu()">Kebijakan Privasi</a>
+        <a href="syarat-ketentuan.html" class="block text-[#68575E] hover:text-[#8A3033]" onclick="toggleMenu()">Syarat & Ketentuan</a>
+        <a href="index.html#kontak" class="block text-[#68575E] hover:text-[#8A3033]" onclick="toggleMenu()">Kontak</a>
+        <div class="pt-2">
+            <button onclick="toggleMenu(); Swal.fire({
+                title: 'Ethereal AI System',
+                text: 'Fitur Analisis AI & Sistem Pakar Certainty Factor sedang dalam proses sinkronisasi database server. Nantikan rilis penuhnya saat demonstrasi sistem utama!',
+                icon: 'info',
+                confirmButtonColor: '#8A3033',
+                confirmButtonText: 'Dimengerti',
+                background: '#FFF8F9'
+            })" class="sm:hidden px-8 py-3 bg-gradient-to-r from-[#7B5556] to-[#EFBDBD] text-white font-bold rounded-full shadow-md">
+                Coba Gratis
+            </button>
+        </div>
+    </div>
+
     <!-- CONTENT -->
     <main>
-        <header class="w-full bg-white border-b border-gray-200 py-16">
+        <header class="w-full bg-white border-b border-gray-200 py-12 md:py-16">
             <div class="max-w-4xl mx-auto px-6 text-center">
-                <h1 class="text-3xl md:text-5xl font-extrabold text-[#68575E] tracking-tight mb-4">Kebijakan Privasi</h1>
+                <h1 class="text-2xl md:text-5xl font-extrabold text-[#68575E] tracking-tight mb-4">Kebijakan Privasi</h1>
                 <p class="text-[#72544E] text-lg">Terakhir diperbarui: 16 April 2026</p>
             </div>
         </header>
 
-        <main class="max-w-4xl mx-auto px-6 py-16 bg-white shadow-sm mt-[-2rem] rounded-t-3xl relative z-10 border-x border-gray-100 mb-20">
+        <main class="max-w-4xl mx-auto px-6 py-12 md:py-16 bg-white shadow-sm mt-[-2rem] rounded-t-3xl relative z-10 border-x border-gray-100 mb-20">
             <div class="prose prose-lg text-[#5D605C] max-w-none prose-headings:text-[#68575E] prose-headings:font-bold prose-a:text-[#8A3033]">
                 <p class="lead text-xl text-[#72544E] font-medium mb-10 border-l-4 border-[#8A3033] pl-6 bg-[#FFEFF3]/30 py-4 rounded-r-xl">
                     Privasi dan keamanan data medis Anda adalah prioritas utama kami. Dokumen ini menjelaskan bagaimana The Ethereal Clinic mengumpulkan, menggunakan, dan melindungi informasi Anda.
@@ -183,6 +211,11 @@
         </div>
     </footer>
 
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+    </script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({
